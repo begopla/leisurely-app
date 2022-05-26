@@ -1,0 +1,32 @@
+<div class="container">
+  <form action="/auth/login" , method="post">
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        required="true"
+        placeholder="john.doe@example.com"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        required="true"
+        placeholder="Password"
+      />
+    </div>
+
+    {{! render errorMessage }}
+    {{#if errMessage}}
+      <p class="error">{{errMessage}}</p>
+    {{/if}}
+
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>
