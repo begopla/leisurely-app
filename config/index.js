@@ -1,6 +1,12 @@
 // We reuse this import in order to have access to the `body` property in requests
 const express = require("express");
 
+// require session
+const session = require("express-session");
+
+// require MongoStore
+const MongoStore = require("connect-mongo");
+
 // ℹ️ Responsible for the messages you see in the terminal as requests are coming in
 // https://www.npmjs.com/package/morgan
 const logger = require("morgan");
@@ -35,5 +41,22 @@ module.exports = (app) => {
   app.use(express.static(path.join(__dirname, "..", "public")));
 
   // Handles access to the favicon
-  app.use(favicon(path.join(__dirname, "..", "public", "images", "favicon.ico")));
+  app.use(
+    favicon(path.join(__dirname, "..", "public", "images", "favicon.ico"))
+  );
+
+  app.use(
+    session({
+      secret: process.env.SESSION_SECRET || "a really random secret",
+      resave: false,
+      saveUninitialized: true,
+      cookie: {
+        maxAge: 60 * 60 * 24 * 7,
+      },
+      store: MongoStore.create({
+        mongoUrl: process.env.MONGO_URI || "mongodb://localhost/activities-app",
+        ttl: 60 * 60 * 24 * 7,
+      }),
+    })
+  );
 };
