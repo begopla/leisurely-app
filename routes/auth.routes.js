@@ -1,13 +1,14 @@
 const router = require("express").Router();
 const User = require("../models/User.model");
 const bcrypt = require("bcryptjs");
+const { isLoggedOut } = require("../middlewares/auth.middlewares.js");
 
 // register
-router.get("/register", (req, res, next) => {
+router.get("/register",isLoggedOut ,(req, res, next) => {
   res.render("auth/register");
 });
 
-router.post("/register", async (req, res, next) => {
+router.post("/register", isLoggedOut, async (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
   // check if email and password are entered
   if (!email || !password) {
@@ -59,7 +60,7 @@ router.post("/register", async (req, res, next) => {
 });
 
 //login
-router.get("/login", (req, res, next) => {
+router.get("/login",isLoggedOut, (req, res, next) => {
   res.render("auth/login");
 });
 
