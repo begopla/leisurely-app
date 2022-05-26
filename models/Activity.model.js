@@ -15,8 +15,7 @@ const activitySchema = new Schema(
     location:{type: String},
     price: {type: Number},
     organizer: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
+        type: String
     },
     comments:[]//TODO update with Comment ObjectID later
     },

@@ -15,7 +15,10 @@ router.get("/", async (req, res, next) => {
 
 /* USE routes files */
 
-router.use('/a', require('./activity.routes'));
+const auth = require("./auth.routes");
 
+router.use("/auth", auth);
+router.use('/a', require('./activity.routes'));
+router.use('/profile',require('./profile.routes'));
 
 module.exports = router;
