@@ -1,0 +1,27 @@
+<h1>{{appTitle}} 🚀</h1>
+<p>Welcome Ironhacker!</p>
+
+
+<div class="row">
+
+{{#each activities}}
+<div class="card col-3" style="width:18 rem ;">
+<img src="{{imageUrl}}" class="card-img-top" alt="Activity image">
+<div class="card-body">
+    
+    <h5 class="card-title">{{name}}</h5>
+    <a href="/a/{{id}}">{{name}}</a>
+
+    <h3>{{date}}</h3>
+    <h2>{{location}}</h2>
+    <h2>{{price}} EUR </h2>
+    <hr>
+    <form action="/#/{{id}}/delete" method="post"><button class="btn btn-dark">Delete</button></form>
+    
+    
+    </form>
+    
+</div>
+</div>
+{{/each}}
+</div>
