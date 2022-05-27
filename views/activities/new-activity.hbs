@@ -1,0 +1,85 @@
+<h1>Let's create your activity</h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <hr />
+      <form action="/a/create" method="post">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name: </label>
+          <input
+            required
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description: </label>
+          <input
+            required
+            type="text"
+            class="form-control"
+            id="description"
+            name="description"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="imageUrl" class="form-label">Image link: </label>
+          <input
+            type="url"
+            class="form-control"
+            id="imageUrl"
+            name="imageUrl"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="startDate" class="form-label">Event start time: </label>
+          <input
+            type="datetime-local"
+            class="form-control"
+            id="date"
+            name="startDate"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="endDate" class="form-label">Event finish time: </label>
+          <input
+            type="datetime-local"
+            class="form-control"
+            id="date"
+            name="endDate"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="location" class="form-label">Location: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="serachInput"
+            placeholder="Enter Location"
+            name="location"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Price in EUR: </label>
+          <input type="text" class="form-control" id="price" name="price" />
+        </div>
+        <div class="mb-3">
+          <label for="organizer" class="form-label">Orgnizer name: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="orginazer"
+            name="organizer"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-dark">Create</button>
+        <a href="/profile" class="btn btn-dark">Go back</a>
+
+      </form>
+    </div>
+  </div>
+</div>

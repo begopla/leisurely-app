@@ -1,25 +1,20 @@
-<h1>{{appTitle}} 🚀</h1>
-<p>Welcome Ironhacker!</p>
+<h1>Find your next activity</h1>
+
 
 
 <div class="row">
 
 {{#each activities}}
-<div class="card col-3" style="width:18 rem ;">
+<div class="card col-3" style="width:25 rem ;">
 <img src="{{imageUrl}}" class="card-img-top" alt="Activity image">
 <div class="card-body">
     
-    <h5 class="card-title">{{name}}</h5>
-    <a href="/a/{{id}}">{{name}}</a>
-
-    <h3>{{date}}</h3>
-    <h2>{{location}}</h2>
-    <h2>{{price}} EUR </h2>
+    <h5 class="card-title"><a href="/{{id}}">{{name}}</a></h5>
+    <h3 id="date-text">On {{startDate}} to {{endDate}}</h3>
+    <h2 id="grey-text">{{location}}</h2>
+    <h2 id="grey-text">{{price}} EUR </h2>
     <hr>
-    <form action="/#/{{id}}/delete" method="post"><button class="btn btn-dark">Delete</button></form>
-    
-    
-    </form>
+    <form action="/a/{{id}}/delete" method="post"><button class="btn btn-dark">Delete</button></form>
     
 </div>
 </div>

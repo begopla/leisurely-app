@@ -98,12 +98,12 @@ router.post("/login", async (req, res, next) => {
     } else {
       // if user exists, change to object
       const checkUserToObject = checkUser.toObject();
-      console.log(checkUserToObject);
+     
       // delete password
       delete checkUserToObject.password;
       // save user in session
       req.session.currentUser = checkUserToObject;
-      console.log(req.session.currentUser);
+    
       // authenticate user
       // req.app.locals.currentUser = true;
       return res.redirect("/profile");

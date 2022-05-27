@@ -11,13 +11,18 @@ const activitySchema = new Schema(
         required: true,
     },
     imageUrl:{type: String },
-    date: {type: Date},
+    startDate: {type: Date},
+    endDate: {type: Date},
     location:{type: String},
     price: {type: Number},
     organizer: {
         type: String
     },
-    comments:[]//TODO update with Comment ObjectID later
+    user:{
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
+    comments:[] 
     },
     {
         timestamps: true,
