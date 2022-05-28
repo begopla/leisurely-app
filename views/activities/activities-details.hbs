@@ -1,1 +1,35 @@
-<h1>this is an activity</h1>
+
+{{#with activityDetails }}
+<h1>Join us at {{name}}</h1>
+<br>
+
+<div class="card mb-3">
+ <img src="{{imageUrl}}" class="card-img-top" alt="Activity image">
+  <div class="card-body">
+    <h5 class="card-title">{{description}}</h5>
+    <h3 id="date-text">On {{startDate}} to {{endDate}}</h3>
+    <p class="card-text"><small class="text-muted">{{location}}</small></p>
+    <p class="card-text"><small class="text-muted">Organized by {{organizer}}</small></p>
+    <p class="card-text"><small class="text-muted">{{price}} EUR</small></p>
+  </div>
+</div>
+
+
+
+
+
+<div class="row">
+    <div class="col-2">
+        <a href="/a/{{id}}/edit" class="btn btn-dark">  Edit </a>
+    </div>
+    <div class="col-1">
+        <form action="/a/{{id}}/delete" method="post"><button class="btn btn-dark">Delete</button></form> 
+    </div>
+</div>
+{{/with}}
+<hr>
+
+ <p class="error-text">
+
+    {{errorMessage}}
+</p>

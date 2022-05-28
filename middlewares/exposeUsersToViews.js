@@ -6,4 +6,16 @@ const exposeUsers = (req,res,next) =>{
     }
     next();
 }
+//TODO: add middleware to expose activity user
+// const  activityUser = (req,res,next) =>{
+//     if(req.session.currentUser === req.app.locals.activityUser){
+
+//         next()
+//     }
+//     else{
+
+//     }
+// }
 module.exports = exposeUsers;
+
+
