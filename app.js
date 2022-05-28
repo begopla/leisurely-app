@@ -27,7 +27,7 @@ app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 
 //import exposeUser in order to use it in the navbar as local
 
-const exposeUser = require('./middlewares/exposeUsersToViews');
+const exposeUser= require('./middlewares/exposeUsersToViews');
 
 
 // 👇 Start handling routes here
