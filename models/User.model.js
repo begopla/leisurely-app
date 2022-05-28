@@ -13,6 +13,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    gender: String,
+    birthday: Date,
+    nationality: String,
     profilePicture: String,
   },
   {

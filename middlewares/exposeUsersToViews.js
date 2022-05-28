@@ -1,3 +1,4 @@
+
 const exposeUsers = (req,res,next) =>{
     if(req.session.currentUser){
         console.log("is there a current user?")
@@ -17,5 +18,4 @@ const exposeUsers = (req,res,next) =>{
 //     }
 // }
 module.exports = exposeUsers;
-
 

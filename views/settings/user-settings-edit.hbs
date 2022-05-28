@@ -1,0 +1,73 @@
+<h1>Edit your profile</h1>
+{{#with editSettings}}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <hr />
+        <form
+          action="/settings/user-settings-edit"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="mb-3">
+            <label for="profilePicture" class="form-label">Profile picture:
+            </label>
+            <input
+              type="file"
+              class="form-control"
+              id="profilePicture"
+              name="profilePicture"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="firstName" class="form-label">first Name: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              name="firstName"
+              value="{{firstName}}"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">last Name: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              name="lastName"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="gender" class="form-label">Gender: </label>
+            <input type="text" class="form-control" id="gender" name="gender" />
+          </div>
+
+          <div class="mb-3">
+            <label for="birthday" class="form-label">Date of Birth: </label>
+            <input
+              type="datetime-local"
+              class="form-control"
+              id="birthday"
+              name="birthday"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="nationality" class="form-label">Nationality: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="nationality"
+              name="nationality"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-dark">Confirm</button>
+          <a href="/profile" class="btn btn-dark">Go back</a>
+
+        </form>
+      </div>
+    </div>
+  </div>
+{{/with}}

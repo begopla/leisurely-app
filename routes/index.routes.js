@@ -6,7 +6,7 @@ const Activity = require("../models/Activity.model");
 router.get("/", async (req, res, next) => {
   try {
     const activities = await Activity.find();
-  res.render("index",{ activities });
+    res.render("index", { activities });
   } catch (error) {
     next(error);
   }
@@ -17,7 +17,8 @@ router.get("/", async (req, res, next) => {
 const auth = require("./auth.routes");
 
 router.use("/auth", auth);
-router.use('/a', require('./activity.routes'));
-router.use('/profile',require('./profile.routes'));
+router.use("/a", require("./activity.routes"));
+router.use("/profile", require("./profile.routes"));
+router.use("/settings", require("./settings.routes"));
 
 module.exports = router;
