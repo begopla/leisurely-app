@@ -1,6 +1,5 @@
 const router = require("express").Router();
 
-const async = require("hbs/lib/async");
 const Activity = require("../models/Activity.model");
 
 /* GET home page */

@@ -1,2 +1,27 @@
 <h1>Welcome to your profile {{currentUser.firstName}} !</h1>
 <hr>
+
+<a href="/a/create" class="btn btn-dark">Create an activity</a>
+<hr>
+
+<div class="row">
+
+{{#each activities}}
+<div class="card col-3" style="width:18 rem ;">
+<img src="{{imageUrl}}" class="card-img-top" alt="Activity image">
+<div class="card-body">
+    
+    <h5 class="card-title"><a href="/{{id}}">{{name}}</a></h5>
+    <h3>From {{startDate}} to {{endDate}}</h3>
+    <h2>{{location}}</h2>
+    <h2>{{price}} EUR </h2>
+    <hr>
+    <form action="/a/{{id}}/delete" method="post"><button class="btn btn-dark">Delete</button></form>
+    
+    
+    </form>
+    
+</div>
+</div>
+{{/each}}
+</div>
