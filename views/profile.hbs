@@ -4,23 +4,20 @@
 <a href="/a/create" class="btn btn-dark">Create an activity</a>
 <hr>
 
-<div class="row">
+<div class="row row-cols-1 row-cols-md-2 g-4">
 
 {{#each activities}}
-<div class="card col-3" style="width:18 rem ;">
-<img src="{{imageUrl}}" class="card-img-top" alt="Activity image">
-<div class="card-body">
-    
-    <h5 class="card-title"><a href="/{{id}}">{{name}}</a></h5>
-    <h3>From {{startDate}} to {{endDate}}</h3>
-    <h2>{{location}}</h2>
-    <h2>{{price}} EUR </h2>
+<div class="col">
+
+<div class="card" style="width: 18rem ;">
+ <a href="/a/{{id}}"> <img src="{{imageUrl}}" class="card-img-top" alt="Activity image" style="height: 30%;"></a>
+  <div class="card-body">
+    <h5 class="card-title"><a href="/a/{{id}}">{{name}}</a></h5>
+    <h3 id="date-text">On {{startDate}} to {{endDate}}</h3>
+    <h3 id="grey-text">{{location}}</h2>
+    <h2 id="grey-text">{{price}} EUR </h2>
     <hr>
-    <form action="/a/{{id}}/delete" method="post"><button class="btn btn-dark">Delete</button></form>
-    
-    
-    </form>
-    
+  </div>
 </div>
 </div>
 {{/each}}

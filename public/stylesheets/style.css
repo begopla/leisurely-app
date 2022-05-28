@@ -4,7 +4,7 @@ body {
 }
 
 a {
-  color: #00b7ff;
+  color: #063e54;
 }
 
 h1 {
@@ -22,7 +22,7 @@ h1 {
   }
 
   #date-text{
-    color: rgb(101, 16, 16);
+    color: rgb(129, 24, 24);
     font-size: 14px;
 
   }
@@ -31,9 +31,20 @@ h1 {
   }
   #grey-text{
     color: rgb(135, 135, 135);
+    font-size: 14px;
   }
 
   .card-img-top{
     border: 0;
     margin: 0;
+  }
+
+  .error-text{
+    padding: 1em;
+    font-size: 1rem;
+    color:red;
+    font-weight: bold;
+    border: 2px solid black;
+    width: 250px;
+    height: auto;
   }
