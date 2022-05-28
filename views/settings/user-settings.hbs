@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Your account</h1>
+  {{#with currentUser}}
+    <h1>Welcome {{firstName}}</h1>
+    <div class="row">
+
+      <div class="col-8">
+        <hr />
+        <img src="{{profilePicture}}" alt="me" />
+      </div>
+
+      <div class="col-4">
+
+        <ul class="list-group">
+          <li class="list-group-item">first Name: <br />{{firstName}}</li>
+          <li class="list-group-item">last Name: <br />{{lastName}}</li>
+          <li class="list-group-item">Gender: <br />{{gender}}</li>
+          <li class="list-group-item">Birthday: <br />{{birthday}}</li>
+          <li class="list-group-item">Nationality: <br />{{nationality}}</li>
+
+        </ul>
+      </div>
+
+      <a href="/settings/user-settings-edit" class="btn btn-dark">Edit Your
+        Profile</a>
+      <a href="/profile" class="btn btn-dark">Go back</a>
+
+    </div>
+  {{/with}}
+</div>
