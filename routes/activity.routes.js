@@ -75,13 +75,13 @@ router.post("/:id/edit",isLoggedIn, async (req,res,next)=>{
 //See activity details
 //Delete activity
 //TODO: delete route 404 error
-router.get("/:id/delete", async (req,res,next)=>{
+router.get("/:id/delete",isLoggedIn, async (req,res,next)=>{
 try {
  const {id } =req.params;
   await Activity.findByIdAndDelete(id);
-  res.redirect('/')
+  res.redirect('/');
 } catch (error) {
-  next(error)
+  next(error);
 }
 });
 

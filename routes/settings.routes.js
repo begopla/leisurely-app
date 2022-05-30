@@ -3,8 +3,11 @@ const { isLoggedIn } = require("../middlewares/auth.middlewares.js");
 const updloader = require("../config/cloudinary");
 const User = require("../models/User.model");
 
+
+
+
 // get root settings
-router.get("/", async (req, res, next) => {
+router.get("/",isLoggedIn, async (req, res, next) => {
   try {
     const myUser = req.session.currentUser;
     console.log(req.session.currentUser);
@@ -15,7 +18,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/user-settings-edit", async (req, res, next) => {
+router.get("/user-settings-edit",isLoggedIn, async (req, res, next) => {
   try {
     const editSettings = req.session.currentUser;
     res.render("settings/user-settings-edit", { editSettings });
@@ -24,8 +27,9 @@ router.get("/user-settings-edit", async (req, res, next) => {
   }
 });
 
+
 router.post(
-  "/user-settings-edit",
+  "/user-settings-edit",isLoggedIn,
   updloader.single("profilePicture"),
   async (req, res, next) => {
     const id = req.session.currentUser._id;
