@@ -42,9 +42,10 @@ h1 {
   .error-text{
     padding: 1em;
     font-size: 1rem;
-    color:red;
+    color:rgb(129, 18, 18);
     font-weight: bold;
-    border: 2px solid black;
-    width: 250px;
-    height: auto;
+    background-color: white;
+	  padding: 1em;
+  	border-radius: 0.5rem;
+	  box-shadow: 0 0 6px 9px rgba(0, 0, 0, 0.15);
   }
