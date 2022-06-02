@@ -17,6 +17,10 @@ const userSchema = new Schema(
     birthday: Date,
     nationality: String,
     profilePicture: String,
+    bookmarkList:[{
+      type: Schema.Types.ObjectId,
+      ref: "Activity",
+    }]
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
