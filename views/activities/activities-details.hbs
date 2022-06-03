@@ -1,34 +1,87 @@
 
-{{#with activityDetails }}
-<h1>Join us at {{name}}</h1>
-<br>
+  <h1>Join us at {{activityDetails.name}}</h1>
+  <br />
 
-<div class="card mb-3">
- <img src="{{imageUrl}}" class="card-img-top" alt="Activity image">
-  <div class="card-body">
-    <h5 class="card-title">{{description}}</h5>
-    <h3 id="date-text">On {{startDate}} to {{endDate}}</h3>
-    <p class="card-text"><small class="text-muted">{{location}}</small></p>
-    <p class="card-text"><small class="text-muted">Organized by {{organizer}}</small></p>
-    <p class="card-text"><small class="text-muted">{{price}} EUR</small></p>
+  <div class="card mb-3">
+    <img src="{{activityDetails.imageUrl}}" class="card-img-top" alt="Activity image" />
+    <div class="card-body">
+      <div class="card-container">
+        <h5 class="card-title">{{activityDetails.description}}</h5>
+        {{!-- {{#if notFoundSavedActivity}} --}}
+          <form action="/a/{{activityDetails.id}}/save" method="post">
+            <button class="btn btn-default btn-sm saveButton" id="buttonLetter">
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="currentColor"
+                class="bi bi-bookmark-heart-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2 15.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v13.5zM8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"
+                ></path>
+              </svg>
+              Save
+            </button>
+          </form>
+        {{!-- {{/if}} --}}
+         {{#if foundSavedActivity}}
+          <form action="/a/{{activityDetails.id}}/save" method="post">
+            <button class="btn btn-default btn-sm saveButton" id="buttonLetter">
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="red"
+                class="bi bi-bookmark-heart-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2 15.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v13.5zM8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"
+                ></path>
+              </svg>
+              Save
+            </button>
+          </form>
+        {{/if}}
+
+        
+      </div>
+      <h3 id="date-text">On {{activityDetails.startDate}} to {{activityDetails.endDate}}</h3>
+      <p class="card-text"><small class="text-muted">{{activityDetails.location}}</small></p>
+      <p class="card-text"><small class="text-muted">Organized by
+          {{activityDetails.organizer}}</small></p>
+      <p class="card-text"><small class="text-muted">{{activityDetails.price}} EUR</small></p>
+    </div>
   </div>
-</div>
+
+  <div>
+
+  </div>
+
+  <hr />
+
+  {{#if errorMessage}}
+    <p class="error-text">⚠️ {{errorMessage}}</p>
+  {{/if}}
 
 
+{{#if theUser}}
 
-
-
-<div class="row">
+  <div class="row">
     <div class="col-2">
-        <a href="/a/{{id}}/edit" class="btn btn-dark">  Edit </a>
+
+      <a href="/a/{{activityDetails.id}}/edit" class="btn btn-dark"> Edit </a>
     </div>
     <div class="col-1">
-        <form action="/a/{{id}}/delete" method="post"><button class="btn btn-dark">Delete</button></form> 
-    </div>
-</div>
-{{/with}}
-<hr>
+      <form action="/a/{{activityDetails.id}}/delete" method="post"><button
+          class="btn btn-dark"
+        >Delete</button></form>
 
- {{#if errorMessage}}
-		<p class="error">⚠️ {{errorMessage}}</p>
+    </div>
+  </div>
+
 {{/if}}

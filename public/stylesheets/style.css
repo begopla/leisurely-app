@@ -49,3 +49,23 @@ h1 {
   	border-radius: 0.5rem;
 	  box-shadow: 0 0 6px 9px rgba(0, 0, 0, 0.15);
   }
+  .container-profile{
+    display: flex;
+    justify-content: space-around;
+  }
+  .card-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  #buttonLetter{
+  font-size: 18px;
+  }
+
+  button > #red{
+    fill: red;
+  }
+
+  .hide {
+    display:none;
+  }

@@ -22,7 +22,11 @@ const activitySchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: "User"
     },
-    comments:[] 
+    comments:[] ,
+    savedByUsers:[{
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }]
     },
     {
         timestamps: true,
