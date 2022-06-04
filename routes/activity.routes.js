@@ -171,7 +171,7 @@ router.get("/:id", async (req, res, next) => {
     const { id } = req.params;
     const activityDetails = await Activity.findById(id).populate("user").populate("savedByUsers").populate("comments"); 
     const comments = activityDetails.comments;
-    console.log(activityDetails,comments)                                 
+    //console.log(activityDetails,comments)                                 
     const theUser = req.session.currentUser;  
     let notsavedactivity= true;
     if (theUser) {
