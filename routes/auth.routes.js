@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const User = require("../models/User.model");
 const bcrypt = require("bcryptjs");
+const transporter = require("../config/nodemailer.config");
 const { isLoggedOut } = require("../middlewares/auth.middlewares.js");
 
 // register
@@ -53,6 +54,15 @@ router.post("/register", isLoggedOut, async (req, res, next) => {
       email,
       password: hashedPassword,
     });
+
+    await transporter.sendMail({
+      from: "Activities app <begonapr@gmail.com>",
+      to: email,
+      subject: "Welcome to Activities App",
+      html: `<h1> Welcome ${firstName} to our network of people just like you</h1>`
+    });
+
+
     res.redirect("/auth/login");
   } catch (error) {
     next(error);

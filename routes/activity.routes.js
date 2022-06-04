@@ -22,7 +22,6 @@ router.post("/create", isLoggedIn, async (req, res, next) => {
   try {
     const user = req.session.currentUser;
     const currentUser = user._id;
-    console.log(currentUser);
     const {
       name,
       description,
@@ -139,8 +138,8 @@ router.post("/:id/save", isLoggedIn, async (req, res, next) => {
       { $addToSet: { bookmarkList: savedActivity._id } },
       { new: true }
     );
-    // await Activity.findByIdAndUpdate(id,{$addToSet:{savedByUsers: id}}, {new: true});
-    res.redirect("/profile");
+    await Activity.findByIdAndUpdate(id,{$addToSet:{savedByUsers: currentUserId}}, {new: true});
+    res.redirect("/profile/savedactivities");
   } catch (error) {
     next(error);
   }
@@ -161,6 +160,8 @@ router.post("/:id/unsave", isLoggedIn, async (req, res, next) => {
       { new: true }
     );
 
+    await Activity.findByIdAndUpdate(id,{$pull:{savedByUsers: currentUserId}}, {new: true});
+
     // await Activity.findByIdAndUpdate(id,{$addToSet:{savedByUsers: id}}, {new: true});
     res.redirect("/profile");
   } catch (error) {
@@ -171,24 +172,38 @@ router.post("/:id/unsave", isLoggedIn, async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const activityDetails = await Activity.findById(id);
-    const theUser = req.session.currentUser;
-    const activityOwner = await activityDetails.populate("user");
+    const activityDetails = await Activity.findById(id).populate("user").populate("savedByUsers");
+    const theUser = req.session.currentUser;  
+    let notsavedactivity= true;
+   
+
     if (theUser) {
-      const activityUser = activityOwner.user;
+      const activityUser = activityDetails.user;
       const activityUserId = activityUser._id.valueOf();
       const currentUserId = theUser._id;
-
-      if (activityUserId === currentUserId) {
+      const savedusers = activityDetails.savedByUsers;
+      let savedactivities = false;
+      savedusers.forEach(element => {
+        if(currentUserId === element._id.valueOf() ){
+           savedactivities =true;
+           notsavedactivity = false;
+           console.log('eureka!')
+        };  
+      });
+  
+               
+      if( activityUserId === currentUserId){
         res.render("activities/activities-details", {
-          activityDetails,
-          theUser,
-        });
-      } else {
-        res.render("activities/activities-details", { activityDetails });
-      }
+            activityDetails,
+            theUser,
+            savedactivities, notsavedactivity
+          })
+      }else{
+         res.render("activities/activities-details", { activityDetails,notsavedactivity,savedactivities });
+        }
+
     } else {
-      res.render("activities/activities-details", { activityDetails });
+      res.render("activities/activities-details",  { activityDetails, notsavedactivity });
     }
   } catch (error) {
     next(error);

@@ -1,9 +1,10 @@
 const router = require("express").Router();
 
 const Activity = require("../models/Activity.model");
+const { isLoggedOut } = require("../middlewares/auth.middlewares");
 
 /* GET home page */
-router.get("/", async (req, res, next) => {
+router.get("/",isLoggedOut, async (req, res, next) => {
   try {
     const activities = await Activity.find();
     res.render("index", { activities });
