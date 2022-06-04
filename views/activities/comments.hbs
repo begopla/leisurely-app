@@ -1,22 +1,22 @@
 <div class="container mt-5">
-  <form action="/a/{{id}}/comments" method="post">
+  <form action="/a/{{activityDetails._id}}/comments" method="post">
     <div class="d-flex justify-content-center row"> 
         <div class="col-md-8">
           <div class="bg-white p">
             <p class="d-block font-weight-bold name">Leave a comment</p>
           </div>
 
-          {{#with currentUser}}
+          
             <div class="d-flex flex-column comment-section">
                 <div class="bg-white p-2">
                   {{!-- insert profile picture, name --}}
-                    <div class="d-flex flex-row user-info"><img class="rounded-circle" src="{{profilePicture}}" width="40">
-                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">{{firstName}} {{lastName}}</span>
+                    <div class="d-flex flex-row user-info"><img class="rounded-circle" src="{{activityDetails.user.profilePicture}}" width="40">
+                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">{{activityDetails.user.firstName}} {{activityDetails.user.lastName}}</span>
                     </div>                  
                 </div>
                 <div class="bg-light p-2">
                     <div class="d-flex flex-row align-items-start">
-                      <textarea name="comment"class="form-control ml-1 shadow-none textarea"></textarea>
+                      <textarea name="comments"class="form-control ml-1 shadow-none textarea"></textarea>
                 </div>
                 
                 <div class="mt-2 text-right">      
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        {{/with}}
+        
     </div>
   </form>
 </div>
