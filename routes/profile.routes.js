@@ -15,7 +15,6 @@ router.get("/savedactivities", isLoggedIn, async (req,res,next) =>{
 
     const user = await User.findById(currentUserId).populate('bookmarkList');
     const savedActivities = user.bookmarkList;
-    console.log(savedActivities)
     res.render("profile/saved-activities", { savedActivities })
   } catch (error) {
     next(error)
@@ -44,7 +43,12 @@ router.get("/json-list", isLoggedIn, async (req,res,next) =>{
 //Load profile
 router.get("/", isLoggedIn, async (req, res, next) => {
   try {
-    const activities = await Activity.find();
+    const activities = await Activity.find().populate('savedByUsers');
+    // const currentUserId = req.session.currentUser._id;
+    // console.log(currentUserId)
+   
+    // const savedusers = activities.savedByUsers;
+    // console.log(savedusers)
     res.render("profile/profile", { activities });
   } catch (error) {
     next(error);
