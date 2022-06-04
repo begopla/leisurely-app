@@ -186,6 +186,7 @@ router.get("/:id", async (req, res, next) => {
       });
     /* const comments = activityDetails.comments;
     console.log(activityDetails.comments); */
+
     const theUser = req.session.currentUser;
     let notsavedactivity = true;
     if (theUser) {
