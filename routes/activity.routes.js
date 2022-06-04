@@ -55,14 +55,11 @@ router.get("/:id/edit", isLoggedIn, async (req, res, next) => {
   try {
     const { id } = req.params;
     const activityDetails = await Activity.findById(id);
-    // console.log(activityDetails)
     const activityOwner = await activityDetails.populate("user");
 
     const activityUser = activityOwner.user;
     const activityuserId = activityUser;
     const activityUserIdValue = activityuserId._id.valueOf();
-    //?how can we make activityUserIdValue and local const to use it as middleware (exposeuser ) ?
-    //req.app.locals.activityUser = activityuserId._id.valueOf();
     const currentUser = req.session.currentUser._id;
     if (currentUser === activityUserIdValue) {
       const theUser = true;
@@ -172,7 +169,9 @@ router.post("/:id/unsave", isLoggedIn, async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const activityDetails = await Activity.findById(id).populate("user").populate("savedByUsers").populate("comments");                                  
+    const activityDetails = await Activity.findById(id).populate("user").populate("savedByUsers").populate("comments"); 
+    const comments = activityDetails.comments;
+    //console.log(activityDetails,comments)                                 
     const theUser = req.session.currentUser;  
     let notsavedactivity= true;
     if (theUser) {
@@ -194,7 +193,7 @@ router.get("/:id", async (req, res, next) => {
         res.render("activities/activities-details", {
           activityDetails,
           theUser, savedactivities, notsavedactivity
-          }
+          })
            
            
       }else{

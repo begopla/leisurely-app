@@ -1,15 +1,10 @@
-{{#with activityDetails}}
-  <h1>Join us at {{name}}</h1>
+
+  <h1>Join us at {{activityDetails.name}}</h1>
   <br />
 
   <div class="card mb-3">
-    <img src="{{imageUrl}}" class="card-img-top" alt="Activity image" />
+    <img src="{{activityDetails.imageUrl}}" class="card-img-top" alt="Activity image" />
     <div class="card-body">
-
-      <h5 class="card-title">{{description}}</h5>
-      <h3 id="date-text">On {{startDate}} to {{endDate}}</h3>
-      <p class="card-text"><small class="text-muted">{{location}}</small></p>
-
       <div class="card-container">
         <h5 class="card-title">{{activityDetails.description}}</h5>
           {{#if notsavedactivity}}
@@ -59,52 +54,60 @@
       <p class="card-text"><small class="text-muted">{{activityDetails.location}}</small></p>
 
       <p class="card-text"><small class="text-muted">Organized by
-          {{organizer}}</small></p>
-      <p class="card-text"><small class="text-muted">{{price}} EUR</small></p>
+          {{activityDetails.organizer}}</small></p>
+      <p class="card-text"><small class="text-muted">{{activityDetails.price}} EUR</small></p>
     </div>
   </div>
+
+  <hr />
+
+  {{#if errorMessage}}
+    <p class="error">⚠️ {{errorMessage}}</p>
+  {{/if}}
+
+  {{#if theUser}}
 
   <div class="row">
     <div class="col-2">
-      <a href="/a/{{id}}/edit" class="btn btn-dark"> Edit </a>
+
+      <a href="/a/{{activityDetails.id}}/edit" class="btn btn-dark"> Edit </a>
     </div>
     <div class="col-1">
-      <form action="/a/{{id}}/delete" method="post"><button
+      <form action="/a/{{activityDetails.id}}/delete" method="post"><button
           class="btn btn-dark"
         >Delete</button></form>
+
     </div>
   </div>
 
+{{/if}}
+
+
   <div class="comments">
-    <a href="/a/{{id}}/comments" class="btn btn-dark">Leave us a Comment</a>
+    <a href="/a/{{activityDetails._id}}/comments" class="btn btn-dark">Leave us a Comment</a>
   </div>
-  {{!-- {{#with commentActivity}} --}}
+  
   <div class="d-flex flex-column comment-section">
     <div class="user-image">
       <img
-        src="{{this.user.profilePicture}}"
+        src="{{activityDetails.user.profilePicture}}"
         width="40"
         alt="profile-picture"
       />
     </div>
     <div class="user-info">
-      <p>{{user.firstName}} {{user.lastName}}</p>
-      <span>{{user.createdAt}}</span>
+      <p>{{activityDetails.user.firstName}} {{activityDetails.user.lastName}}</p>
+      <span>{{activityDetails.user.createdAt}}</span>
     </div>
-
+{{#each activityDetails.comments}}
     <div class="user-comment">
-      <p>{{comments}}</p>
+      <p>{{comment}}</p>
     </div>
-
+{{/each}}
   </div>
-  {{!-- {{/with}} --}}
+ 
 
-{{/with}}
-<hr />
 
-{{#if errorMessage}}
-  <p class="error">⚠️ {{errorMessage}}</p>
-{{/if}}
 
 
 <script src="/js/activity-detail.js"></script>
