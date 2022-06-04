@@ -18,6 +18,7 @@ const auth = require("./auth.routes");
 
 router.use("/auth", auth);
 router.use("/a", require("./activity.routes"));
+router.use("/a", require("./comments.routes"));
 router.use("/profile", require("./profile.routes"));
 router.use("/settings", require("./settings.routes"));
 

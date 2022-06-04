@@ -173,7 +173,11 @@ router.get("/:id", async (req, res, next) => {
     const { id } = req.params;
     const activityDetails = await Activity.findById(id);
     const theUser = req.session.currentUser;
-    const activityOwner = await activityDetails.populate("user");
+    const activityOwner = await activityDetails
+      .populate("user")
+      .populate("comments");
+    /* const commentActivity = await activityOwner.populate("comments"); */
+    console.log(commentActivity);
     if (theUser) {
       const activityUser = activityOwner.user;
       const activityUserId = activityUser._id.valueOf();
@@ -181,14 +185,22 @@ router.get("/:id", async (req, res, next) => {
 
       if (activityUserId === currentUserId) {
         res.render("activities/activities-details", {
+          activityOwner,
           activityDetails,
           theUser,
         });
       } else {
-        res.render("activities/activities-details", { activityDetails });
+        res.render("activities/activities-details", {
+          activityOwner,
+          activityDetails,
+          /* commentActivity, */
+        });
       }
     } else {
-      res.render("activities/activities-details", { activityDetails });
+      res.render("activities/activities-details", {
+        activityDetails,
+        commentActivity,
+      });
     }
   } catch (error) {
     next(error);

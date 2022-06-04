@@ -1,37 +1,41 @@
 const { Schema, model } = require("mongoose");
 
 const activitySchema = new Schema(
-    {
-    name:{
-        type:String,
-        required: true,
+  {
+    name: {
+      type: String,
+      required: true,
     },
-    description:{
-        type: String,
-        required: true,
+    description: {
+      type: String,
+      required: true,
     },
-    imageUrl:{type: String },
-    startDate: {type: Date},
-    endDate: {type: Date},
-    location:{type: String},
-    price: {type: Number},
+    imageUrl: { type: String },
+    startDate: { type: Date },
+    endDate: { type: Date },
+    location: { type: String },
+    price: { type: Number },
     organizer: {
-        type: String
+      type: String,
     },
-    user:{
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+    comments: [{
+      type: Schema.Types.ObjectId,
+      ref: "Comment",
+    }],
+    savedByUsers: [
+      {
         type: Schema.Types.ObjectId,
-        ref: "User"
-    },
-    comments:[] ,
-    savedByUsers:[{
-        type: Schema.Types.ObjectId,
-        ref: "User"
-    }]
-    },
-    {
-        timestamps: true,
-    }
-
+        ref: "User",
+      },
+    ],
+  },
+  {
+    timestamps: true,
+  }
 );
 const Activity = model("Activity", activitySchema);
 module.exports = Activity;
