@@ -172,11 +172,9 @@ router.post("/:id/unsave", isLoggedIn, async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const activityDetails = await Activity.findById(id).populate("user").populate("savedByUsers");
+    const activityDetails = await Activity.findById(id).populate("user").populate("savedByUsers").populate("comments");                                  
     const theUser = req.session.currentUser;  
     let notsavedactivity= true;
-   
-
     if (theUser) {
       const activityUser = activityDetails.user;
       const activityUserId = activityUser._id.valueOf();
@@ -194,16 +192,18 @@ router.get("/:id", async (req, res, next) => {
                
       if( activityUserId === currentUserId){
         res.render("activities/activities-details", {
-            activityDetails,
-            theUser,
-            savedactivities, notsavedactivity
-          })
+          activityDetails,
+          theUser, savedactivities, notsavedactivity
+          }
+           
+           
       }else{
          res.render("activities/activities-details", { activityDetails,notsavedactivity,savedactivities });
         }
 
     } else {
       res.render("activities/activities-details",  { activityDetails, notsavedactivity });
+
     }
   } catch (error) {
     next(error);
