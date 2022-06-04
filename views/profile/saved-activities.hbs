@@ -1,8 +1,8 @@
-<h1>This is your fancy list!</h1>
+<h1>Ready for all the fun?</h1>
 <hr>
+
 <section id="savedActivitites-container">
-
-
+<div class="row row-cols-1 row-cols-md-2 g-4">
 {{#each savedActivities }}
 <div class="col">
 
@@ -15,7 +15,7 @@
     <div class="card-container">
       <h5 class="card-title"><a href="/a/{{id}}">{{name}}</a></h5>
      
-      <button type="submit" class="btn btn-default btn-sm saved-button" >Saved <span class="hide">{{id}}</span>
+      <button type="submit" class="btn btn-default btn-sm saveButton saved-button" >Saved <span class="hide">{{id}}</span>
        
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="red" class="bi bi-bookmark-heart-fill" viewBox="0 0 16 16">
         <path d="M2 15.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v13.5zM8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"></path></svg>
@@ -30,11 +30,10 @@
 </div>
 </div>
 {{/each}}
-
-</section>
-<div class="row row-cols-1 row-cols-md-2 g-4">
 </div>
+</section>
 
-{{savedactivities}}
+
+
 
  <script src="/js/activities.js"></script>

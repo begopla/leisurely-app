@@ -10,7 +10,6 @@ const User = require("../models/User.model");
 router.get("/",isLoggedIn, async (req, res, next) => {
   try {
     const myUser = req.session.currentUser;
-    console.log(req.session.currentUser);
     //const userSettings = await User.find();
     res.render("settings/user-settings", { userSettings: [myUser] });
   } catch (error) {
