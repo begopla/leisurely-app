@@ -3,10 +3,15 @@ const Comment = require("../models/Comment.model");
 const Activity = require("../models/Activity.model");
 const { isLoggedIn } = require("../middlewares/auth.middlewares");
 
-router.get("/:id/comments", (req, res, next) => {
+router.get("/:id/comments", async (req, res, next) => {
   const { id } = req.params;
-  res.render("activities/comments", { id });
-  /* console.log(req.session.currentUser); */
+  try {
+    const activityDetails = await Activity.findById(id).populate("user");
+    console.log(activityDetails);
+    res.render("activities/comments", { activityDetails });
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.post("/:id/comments", isLoggedIn, async (req, res, next) => {
@@ -14,8 +19,8 @@ router.post("/:id/comments", isLoggedIn, async (req, res, next) => {
   const { comments } = req.body;
   try {
     const newComment = await Comment.create({
-      user: req.session.currentUser_id,
-      comments,
+      user: req.session.currentUser._id,
+      comment: comments,
     });
     await Activity.findByIdAndUpdate(
       id,
