@@ -1,14 +1,24 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+  line-height: 1.12;
+  background-color: #ffffff;
+  scroll-behavior: smooth;
 }
 
 a {
-  color: #063e54;
+  color: #484848;
 }
 
 h1 {
-  color: 15px;
+  text-align: center;
+  margin-top: 2em;
+  font-weight: bold;
+  word-spacing: 0.2rem;
 }
+
 .body-container {
   box-sizing: border-box;
   margin: 2%;
@@ -74,4 +84,96 @@ button > #red {
 
 .search-icon {
   width: 20px;
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2;
+  margin: 1.5em;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+.btn {
+  border-radius: 20px;
+}
+
+.welcome-image {
+  position: relative;
+}
+
+.welcome-text {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  text-align: center;
+  height: 100vh;
+}
+
+.welcome-image {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 5em;
+  background-color: #b4b4b4;
+  padding: 2em 1em;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.activity-container {
+  display: flex;
+  justify-content: center;
+  gap: 5em;
+  height: 200px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-link {
+  background-color: #dddddd;
+  color: #484848;
+  border-radius: 20px;
+  margin: 0 0.4em;
+}
+
+.nav-link:hover {
+  color: #dddddd;
+  background-color: #484848;
+  transition: 0.2s;
+}
+
+.btn {
+  background-color: #dddddd;
+  color: #484848;
+  border-radius: 20px;
+  border: none;
+}
+
+.btn:hover {
+  color: #dddddd;
+  background-color: #8b8b8b;
+  transition: 0.2s;
+}
+
+.card {
+  box-shadow: 8px 8px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+.form-control-me-2 {
+  border: none;
 }

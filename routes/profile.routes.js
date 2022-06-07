@@ -20,11 +20,11 @@ router.get("/savedactivities", isLoggedIn, async (req, res, next) => {
   }
 });
 
-router.get("/search-results", isLoggedIn, (req, res, next) => {
+router.get("/search-results", (req, res, next) => {
   res.render("profile/search-results");
 });
 
-router.post("/search-results", isLoggedIn, async (req, res, next) => {
+router.post("/search-results", async (req, res, next) => {
   try {
     const findActivity = await Activity.find({
       name: { $regex: req.body.text, $options: "i" },
