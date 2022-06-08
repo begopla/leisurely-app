@@ -3,7 +3,7 @@
 
 <section id="savedActivitites-container">
 <div class="row row-cols-1 row-cols-md-2 g-4">
-{{#each savedActivities }}
+{{#each registerActivity }}
 <div class="col">
 
 <div class="card" style="width: 18rem ;">
@@ -15,12 +15,9 @@
     <div class="card-container">
       <h5 class="card-title"><a href="/a/{{id}}">{{name}}</a></h5>
      
-      <button type="submit" class="btn btn-default btn-sm saveButton saved-button" >Saved <span class="hide">{{id}}</span>
-       
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" id="red" class="bi bi-bookmark-heart-fill" viewBox="0 0 16 16">
-        <path d="M2 15.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v13.5zM8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"></path></svg>
-         
-        </button>
+      <button type="submit" class="btn btn-default btn-sm saveButton saved-button" id="buttonLetter">You're going <span class="hide">{{id}}</span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
+          <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+          </svg> </button>
     </div>
     <h3 id="date-text">On {{startDate}} to {{endDate}}</h3>
     <h3 id="grey-text">{{location}}</h2>
@@ -36,4 +33,4 @@
 
 
 
- <script src="/js/activities.js"></script>
+ <script src="/js/going.js"></script>

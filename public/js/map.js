@@ -25,7 +25,7 @@ const main = async () => {
     const res = await axios.get("http://localhost:3000/json-list");
     
     res.data.forEach(element => {
-        console.log(element)
+        
     const mapboxClient = mapboxSdk({ accessToken: MAPBOX_ACCESS_TOKEN });
     mapboxClient.geocoding
         .forwardGeocode({
@@ -46,7 +46,7 @@ const main = async () => {
         return;
         }
         const feature = response.body.features[0];
-        console.log(response)
+       
         const coordinates = feature.geometry.coordinates;
 
         

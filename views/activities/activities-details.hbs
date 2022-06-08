@@ -1,7 +1,9 @@
 <h1>Join us at {{activityDetails.name}}</h1>
 <br />
-
+<section style="background-color: #eee;">
+<div id="activity-detail-container">
 <div class="card mb-3">
+  
   <img
     src="{{activityDetails.imageUrl}}"
     class="card-img-top"
@@ -9,7 +11,29 @@
   />
   <div class="card-body">
     <div class="card-container">
-      <h5 class="card-title">{{activityDetails.description}}</h5>
+      <h5 class="card-title description">{{activityDetails.description}}</h5>
+     {{#if notregister}}
+      <div class="register">
+        <form action="/a/{{activityDetails.id}}/register" method="post">
+        <button id="register-button">Register</button>
+        </form>
+      </div>
+     {{/if}}
+     {{#if userIsregistered}}
+     <button
+          class="btn btn-default btn-sm register-activitydetails-button"
+          id="buttonLetter"
+        >
+          You're going
+          <span class="hide">{{activityDetails._id}}</span>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
+          <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+          </svg>
+        </button>
+
+     {{/if}}
+
       {{#if notsavedactivity}}
         <form action="/a/{{activityDetails.id}}/save" method="post">
           <button class="btn btn-default btn-sm saveButton" id="buttonLetter">
@@ -70,43 +94,43 @@
         {{activityDetails.organizer}}</small></p>
     <p class="card-text"><small class="text-muted">{{activityDetails.price}}
         EUR</small></p>
+       
+     {{#if theUser}}
+
+     <div class="row">
+      <div class="col-2">
+      <a href="/a/{{activityDetails.id}}/edit" class="btn btn-dark"> Edit </a>
+      </div>
+      <div class="col-1">
+      <form action="/a/{{activityDetails.id}}/delete" method="post"><button
+          class="btn btn-dark"
+        >Delete</button></form>
+        </div>
+        </div>
+      {{/if}}
+
   </div>
 </div>
+</div>
+</section>
 
-<hr />
 
 {{#if errorMessage}}
   <p class="error">⚠️ {{errorMessage}}</p>
 {{/if}}
 
-{{#if theUser}}
 
-  <div class="row">
-    <div class="col-2">
-
-      <a href="/a/{{activityDetails.id}}/edit" class="btn btn-dark"> Edit </a>
-    </div>
-    <div class="col-1">
-      <form action="/a/{{activityDetails.id}}/delete" method="post"><button
-          class="btn btn-dark"
-        >Delete</button></form>
-
-    </div>
-  </div>
-
-{{/if}}
-
-<div class="comments">
-  <a href="/a/{{activityDetails._id}}/comments" class="btn btn-dark">Leave us a
-    Comment</a>
-</div>
 
 
   <section style="background-color: #eee;">
-    <div class="container my-5 py-5">
+    <div class="container my-5 py-5 set-width">
       <div class="row d-flex">
         <div class="col-md-10">
           <div class="card">
+          <div class="comments">
+            <a href="/a/{{activityDetails._id}}/comments" class="btn btn-dark">Leave us a
+              Comment</a>
+          </div>
             <div class="card-body">
               
                 {{#each activityDetails.comments}}
@@ -146,9 +170,11 @@
                 </a>
               </div> --}}
             </div>
+            <div class="comments">
             <form action="/a/{{id}}/comments/delete" method="post">
             <button type="submit" class="btn btn-primary">Delete</button>
             </form>
+            </div>
             </div>
           </div>
         </div>
@@ -158,3 +184,4 @@
 
 
 <script src="/js/activity-detail.js"></script>
+<script src="/js/activity-detail-unregister.js"></script>
