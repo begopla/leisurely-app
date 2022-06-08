@@ -7,7 +7,6 @@ router.get("/:id/comments", async (req, res, next) => {
   const { id } = req.params;
   try {
     const activityDetails = await Activity.findById(id).populate("user");
-    console.log(activityDetails);
     res.render("activities/comments", { activityDetails });
   } catch (error) {
     next(error);
