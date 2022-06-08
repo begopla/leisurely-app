@@ -12,6 +12,14 @@ router.get("/",isLoggedOut, async (req, res, next) => {
     next(error);
   }
 });
+router.get("/json-list", async (req, res, next) => {
+  try {
+    const activities = await Activity.find();
+    res.json( activities );
+  } catch (error) {
+    next(error);
+  }
+});
 
 /* USE routes files */
 
