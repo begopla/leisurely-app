@@ -1,71 +1,179 @@
 body {
- 
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+  line-height: 1.12;
+  background-color: #ffffff;
+  scroll-behavior: smooth;
 }
 
 a {
-  color: #063e54;
+  color: #484848;
 }
 
 h1 {
-  color: 15px;
+  text-align: center;
+  margin-top: 2em;
+  font-weight: bold;
+  word-spacing: 0.2rem;
 }
+
 .body-container {
-	box-sizing: border-box;
-	margin: 2%;
-	padding: 0;
+  box-sizing: border-box;
+  margin: 2%;
+  padding: 0;
 }
-.card-title{
+.card-title {
   color: #262339;
-  font-size:18px ;
-  text-decoration: none;
-  }
-
-  #date-text{
-    color: rgb(129, 24, 24);
-    font-size: 14px;
-
-  }
-  h2{
-    font-size: 14px;
-  }
-  #grey-text{
-    color: rgb(135, 135, 135);
-    font-size: 14px;
-  }
-
-  .card-img-top{
-    border: 0;
-    margin: 0;
-  }
-
-  .error-text{
-    padding: 1em;
-    font-size: 1rem;
-    color:rgb(129, 18, 18);
-    font-weight: bold;
-    background-color: white;
-	  padding: 1em;
-  	border-radius: 0.5rem;
-	  box-shadow: 0 0 6px 9px rgba(0, 0, 0, 0.15);
-  }
-  .container-profile{
-    display: flex;
-    justify-content: space-around;
-  }
-  .card-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  #buttonLetter{
   font-size: 18px;
-  }
+  text-decoration: none;
+}
 
-  button > #red{
-    fill: red;
-  }
+#date-text {
+  color: rgb(129, 24, 24);
+  font-size: 14px;
+}
+h2 {
+  font-size: 14px;
+}
+#grey-text {
+  color: rgb(135, 135, 135);
+  font-size: 14px;
+}
 
-  .hide {
-    display:none;
-  }
+.card-img-top {
+  border: 0;
+  margin: 0;
+}
+
+.error-text {
+  padding: 1em;
+  font-size: 1rem;
+  color: rgb(129, 18, 18);
+  font-weight: bold;
+  background-color: white;
+  padding: 1em;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 6px 9px rgba(0, 0, 0, 0.15);
+}
+.container-profile {
+  display: flex;
+  justify-content: space-around;
+}
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+#buttonLetter {
+  font-size: 18px;
+}
+
+button > #red {
+  fill: red;
+}
+
+.hide {
+  display: none;
+}
+
+.logo {
+  width: 150px;
+}
+
+.search-icon {
+  width: 20px;
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2;
+  margin: 1.5em;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+.btn {
+  border-radius: 20px;
+}
+
+.welcome-image {
+  position: relative;
+}
+
+.welcome-text {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  text-align: center;
+  height: 100vh;
+}
+
+.welcome-image {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 5em;
+  background-color: #b4b4b4;
+  padding: 2em 1em;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.activity-container {
+  display: flex;
+  justify-content: center;
+  gap: 5em;
+  height: 200px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-link {
+  background-color: #dddddd;
+  color: #484848;
+  border-radius: 20px;
+  margin: 0 0.4em;
+}
+
+.nav-link:hover {
+  color: #dddddd;
+  background-color: #484848;
+  transition: 0.2s;
+}
+
+.btn {
+  background-color: #dddddd;
+  color: #484848;
+  border-radius: 20px;
+  border: none;
+}
+
+.btn:hover {
+  color: #dddddd;
+  background-color: #8b8b8b;
+  transition: 0.2s;
+}
+
+.card {
+  box-shadow: 8px 8px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+.form-control-me-2 {
+  border: none;
+}
