@@ -37,6 +37,7 @@ h1 {
   font-size: 14px;
   width: 60%;
 }
+
 h2 {
   font-size: 14px;
 }
@@ -66,7 +67,7 @@ h2 {
   justify-content: space-evenly;
 }
 
-.card-split{
+.card-split {
   display: flex;
 }
 .card-container {
@@ -85,7 +86,7 @@ button > #red {
 }
 
 #register-button {
-  background-color: #4CAF50; /* Green */
+  background-color: #4caf50; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -247,29 +248,29 @@ footer {
   color: #484848;
   left: 0;
 }
-.comments{
+.comments {
   padding: 2%;
   display: flex;
   justify-content: center;
 }
-#activity-detail-container{
+#activity-detail-container {
   padding: 2%;
-  
+
   display: flex;
   justify-content: center;
 }
-.set-width{
+.set-width {
   width: 70%;
 }
-#map-styling{
-display: flex;
-justify-content: center;
+#map-styling {
+  display: flex;
+  justify-content: center;
 }
 
-.description{
+.description {
   width: 70%;
 }
-#savedActivitites-container{
+#savedActivitites-container {
   margin-left: 5%;
   display: flex;
   justify-content: center;
