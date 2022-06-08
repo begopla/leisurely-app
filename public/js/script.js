@@ -20,7 +20,7 @@ autocomplete.addListener('place_changed', onPlaceChanged);
   }
   function onPlaceChanged(){
      var place = autocomplete.getPlace();
-
+    console.log(place.geometry.location)
      if(!place.geometry){
     //User did not select a prediction; reset the input field
      document.getElementById('autocomplete').placeholder = 'Enter a place';
@@ -29,3 +29,4 @@ autocomplete.addListener('place_changed', onPlaceChanged);
      document.getElementById('details').innerHTML = place.name;
      }
 }
+
