@@ -6,6 +6,8 @@ body {
   line-height: 1.12;
   background-color: #ffffff;
   scroll-behavior: smooth;
+  height: 100vh;
+  font-size: 1.09rem;
 }
 
 a {
@@ -162,12 +164,14 @@ footer {
   color: #484848;
   border-radius: 20px;
   border: none;
+  outline: 0;
 }
 
 .btn:hover {
   color: #dddddd;
   background-color: #8b8b8b;
   transition: 0.2s;
+  transform: scale(0.97);
 }
 
 .card {
@@ -175,5 +179,53 @@ footer {
 }
 
 .form-control-me-2 {
-  border: none;
+  border: 0;
+}
+
+.form {
+  position: relative;
+  margin: 2em 0;
+  height: 3rem;
+}
+
+.form-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  border-bottom: 2px solid #b4b4b4;
+}
+
+.form-control:focus {
+  border-bottom-color: #b4b4b4;
+}
+
+.form-input span {
+  transition: 0.3s cubic-bezier(0.67, -71, 0.261, 1.7);
+}
+
+.form-control:focus + .form-label span {
+  color: #484848;
+  display: inline-block;
+  transform: translateY(-5px);
+}
+
+.form-label {
+  position: absolute;
+  left: 0;
+  top: 1em;
+  padding-left: 0.5em;
+  cursor: text;
+  /* transition: top 200ms ease-in; */
+  background-color: #ffffff;
+}
+
+.form-control:focus + .form-label,
+.form-control:not(:placeholder-shown).form-control:not(:focus) + .form-label {
+  top: -1.5rem;
+  color: #484848;
+  left: 0;
 }
