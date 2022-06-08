@@ -20,6 +20,10 @@ const userSchema = new Schema(
     bookmarkList:[{
       type: Schema.Types.ObjectId,
       ref: "Activity",
+    }],
+    activitiesGoing:[{
+      type: Schema.Types.ObjectId,
+      ref: "Activity",
     }]
   },
   {

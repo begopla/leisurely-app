@@ -20,7 +20,7 @@ window.onload = async () => {
 
       //Getting the activity data
       const response = await axios.get("http://localhost:3000/profile/json-list");
-      console.log(response.data)
+     
       //Deleting DOM content
       container.innerHTML = "";
 
