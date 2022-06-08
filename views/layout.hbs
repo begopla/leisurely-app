@@ -21,9 +21,14 @@
    </head>
 
    <body>
+      <div class="nav-header">
       {{> navbar}}
+      </div>
       <div class="body-container">
       {{{body}}}
+      </div>
+      <div class="footer-container">
+         {{> footer}}
       </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
@@ -33,6 +38,7 @@
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw6PGcun7wTr2nP8H6GBJf3qgvxn2t2GI&libraries=places&callback=initAutocomplete"></script> 
     <script src="/js/script.js"></script>
     <script src="/js/features.js"></script>
+    <script src="/js/ratings.js"></script>
     
    
    </body>
