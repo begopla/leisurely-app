@@ -6,49 +6,49 @@
       <hr />
 
       <form action="/auth/register" , method="post">
-        <div class="mb-3">
-          <label for="firstName" class="form-label">First name</label>
+        <div class="mb-3 form">
           <input
             type="text"
             class="form-control"
             id="firstName"
             name="firstName"
-            placeholder="John"
+            placeholder=" "
           />
+          <label for="firstName" class="form-label">First name</label>
         </div>
 
-        <div class="mb-3">
-          <label for="lastName" class="form-label">Last Name</label>
+        <div class="mb-3 form">
           <input
             type="text"
             class="form-control"
             id="lastName"
             name="lastName"
-            placeholder="Doe"
+            placeholder=" "
           />
+          <label for="lastName" class="form-label">Last Name</label>
         </div>
 
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
+        <div class="mb-3 form">
           <input
             type="text"
             class="form-control"
             id="email"
-            required="true"
+            {{! required="true" }}
             name="email"
-            placeholder="john.doe@example.com"
+            placeholder=" "
           />
+          <label for="email" class="form-label">Email</label>
         </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
+        <div class="mb-3 form">
           <input
             type="password"
             class="form-control"
             id="password"
-            required="true"
+            {{! required="true" }}
             name="password"
-            placeholder="Password"
+            placeholder=" "
           />
+          <label for="password" class="form-label">Password</label>
         </div>
 
         {{! render errorMessage }}
@@ -64,4 +64,6 @@
       <hr />
     </div>
   </div>
-</div>
+</div>{{!  }}
+
+<script src="/js/features.js"></script>
