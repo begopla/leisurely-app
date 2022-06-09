@@ -9,8 +9,7 @@
           method="post"
           enctype="multipart/form-data"
         >
-          <div class="mb-3">
-            <label for="profilePicture" class="form-label">Profile picture:
+          <div class="mb-3 form">
             </label>
             <input
               type="file"
@@ -18,49 +17,64 @@
               id="profilePicture"
               name="profilePicture"
             />
+            <label for="profilePicture" class="form-label">Profile picture:
           </div>
-          <div class="mb-3">
-            <label for="firstName" class="form-label">first Name: </label>
+          <div class="mb-3 form">
             <input
               type="text"
               class="form-control"
               id="firstName"
               name="firstName"
               value="{{firstName}}"
+              placeholder=" "
             />
+            <label for="firstName" class="form-label">first Name: </label>
           </div>
-          <div class="mb-3">
-            <label for="lastName" class="form-label">last Name: </label>
+          <div class="mb-3 form">
             <input
               type="text"
               class="form-control"
               id="lastName"
               name="lastName"
+              value="{{lastName}}"
+              placeholder=" "
             />
+            <label for="lastName" class="form-label">last Name: </label>
           </div>
-          <div class="mb-3">
+          <div class="mb-3 form">
+            <input
+            type="text"
+            class="form-control" 
+            id="gender" 
+            name="gender"
+            value="{{gender}}"
+            placeholder=" "
+             />
             <label for="gender" class="form-label">Gender: </label>
-            <input type="text" class="form-control" id="gender" name="gender" />
           </div>
 
-          <div class="mb-3">
-            <label for="birthday" class="form-label">Date of Birth: </label>
+          <div class="mb-3 form">
             <input
               type="datetime-local"
               class="form-control"
               id="birthday"
               name="birthday"
+              value="{{birthday}}"
+              placeholder=" "
             />
+            <label for="birthday" class="form-label">Date of Birth: </label>
           </div>
 
-          <div class="mb-3">
-            <label for="nationality" class="form-label">Nationality: </label>
+          <div class="mb-3 form">
             <input
               type="text"
               class="form-control"
               id="nationality"
               name="nationality"
+              value="{{nationality}}"
+              placeholder=" "
             />
+            <label for="nationality" class="form-label">Nationality: </label>
           </div>
 
           <button type="submit" class="btn btn-dark">Confirm</button>

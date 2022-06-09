@@ -87,6 +87,9 @@ footer img {
   width: 60%;
 }
 
+h2 {
+  font-size: 14px;
+}
 #grey-text {
   font-size: 14px;
 }
@@ -239,6 +242,10 @@ button > #red {
 
 .btn:active {
   transform: scale(0.97);
+}
+
+.card {
+  box-shadow: 8px 8px 10px 0px rgba(0, 0, 0, 0.15);
 }
 
 .form-control-me-2 {
