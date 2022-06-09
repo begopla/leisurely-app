@@ -1,40 +1,89 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap");
+
+/* 
+COLOR1: #ced4da;
+COLOR2: #343a40;
+COLOR3: #adb5bd;
+*/
+* {
   margin: 0;
   padding: 0;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-    Helvetica Neue, sans-serif;
-  line-height: 1.12;
-  background-color: #ffffff;
-  scroll-behavior: smooth;
-  height: 180vh;
-  font-size: 1.09rem;
+  box-sizing: border-box;
 }
 
-a {
-  color: #484848;
+body {
+  /* font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif; */
+  font-family: "Merriweather", serif;
+  color: #343a40;
+  background-color: #ffffff;
+  scroll-behavior: smooth;
+  height: 100%;
+  border-bottom: 28px solid #343a40;
 }
 
 h1 {
+  font-size: 2.488rem;
+  line-height: 1.1;
   text-align: center;
   margin-top: 2em;
   font-weight: bold;
-  word-spacing: 0.2rem;
+  letter-spacing: -1px;
 }
 
 .body-container {
   box-sizing: border-box;
-  margin: 2%;
   padding: 0;
+  margin: 0;
 }
+
+h2 {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+footer {
+  position: relative;
+  height: 30px;
+  clear: both;
+  bottom: 0;
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  padding: 2em 1em;
+  width: 100%;
+}
+
+footer img {
+  width: 30px;
+}
+
+.card {
+  box-shadow: 8px 8px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+.box {
+  width: 350px;
+  min-height: 100%;
+}
+
 .card-title {
-  color: #262339;
-  font-size: 18px;
+  font-size: 1.1rem;
+  line-height: 1.7;
   text-decoration: none;
 }
 
+.col {
+  margin: 0 auto;
+  width: 90%;
+}
+
 #date-text {
+  margin-top: 1em;
   color: rgb(129, 24, 24);
-  font-size: 14px;
+  font-size: 1.1rem;
   width: 60%;
 }
 
@@ -42,7 +91,6 @@ h2 {
   font-size: 14px;
 }
 #grey-text {
-  color: rgb(135, 135, 135);
   font-size: 14px;
 }
 
@@ -119,10 +167,6 @@ button > #red {
   height: auto;
 }
 
-.btn {
-  border-radius: 20px;
-}
-
 .welcome-image {
   position: relative;
 }
@@ -135,6 +179,16 @@ button > #red {
   height: 100vh;
 }
 
+.welcome-form {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .welcome-image {
   width: 100%;
   background-repeat: no-repeat;
@@ -142,23 +196,12 @@ button > #red {
   background-position: center;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  gap: 5em;
-  background-color: #b4b4b4;
-  padding: 2em 1em;
-
-  width: 100%;
-}
-
 .activity-container {
   display: flex;
   justify-content: center;
   gap: 5em;
-  height: 200px;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .row {
@@ -167,30 +210,32 @@ footer {
 }
 
 .nav-link {
-  background-color: #dddddd;
-  color: #484848;
+  color: #343a40;
   border-radius: 20px;
   margin: 0 0.4em;
 }
 
 .nav-link:hover {
-  color: #dddddd;
-  background-color: #8b8b8b;
+  color: #343a40;
+  background-color: #ced4da;
   transition: 0.2s;
   transform: scale(0.97);
 }
 
 .btn {
-  background-color: #dddddd;
-  color: #484848;
+  color: #343a40;
+  background-color: #ced4da;
+  font-weight: 700;
+  font-size: 1.1rem;
   border-radius: 20px;
   border: none;
   outline: 0;
 }
 
 .btn:hover {
-  color: #dddddd;
-  background-color: #8b8b8b;
+  color: #343a40;
+  background-color: #adb5bd;
+  font-size: inherit;
   transition: 0.2s;
   transform: scale(0.97);
 }
@@ -221,11 +266,10 @@ footer {
   font-family: inherit;
   font-size: inherit;
   background: none;
-  border-bottom: 2px solid #b4b4b4;
 }
 
 .form-control:focus {
-  border-bottom-color: #b4b4b4;
+  border-bottom-color: #adb5bd;
 }
 
 .form-input span {
@@ -233,7 +277,7 @@ footer {
 }
 
 .form-control:focus + .form-label span {
-  color: #484848;
+  color: #343a40;
   display: inline-block;
   transform: translateY(-5px);
 }
@@ -251,7 +295,7 @@ footer {
 .form-control:focus + .form-label,
 .form-control:not(:placeholder-shown).form-control:not(:focus) + .form-label {
   top: -1.5rem;
-  color: #484848;
+  color: #343a40;
   left: 0;
 }
 .comments {
@@ -324,12 +368,12 @@ footer {
 }
 
 .rating small {
-  color: #b4b4b4;
+  color: #ced4da;
   display: inline-block;
   margin: 0.4em 0 0;
 }
 
 .rating:hover small,
 .rating:active small {
-  color: #484848;
+  color: #343a40;
 }

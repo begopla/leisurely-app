@@ -4,13 +4,13 @@
     src="/images/ethan-robertson-SYx3UCHZJlo-unsplash.jpg"
     alt="beach-sunglasses"
   />
-  <div class="welcome-text">
-    <h1>Find your next Activity, Register your Account</h1>
-    <p>Discover the Unknown</p>
-    <form action="/auth/register" , method="post">
-      <button class="btn" href="./auth/register.hbs">Sign up now</button>
-    </form>
+  <div class="welcome-text" id="speed" value="1">
+    <h1 id="text"></h1>
   </div>
+  <form class="welcome-form" action="/auth/register" , method="post">
+    <p>Discover the Unknown</p>
+    <button class="btn" href="./auth/register.hbs">Sign up now</button>
+  </form>
 </div>
 
 <h1>How about these ones?</h1>
@@ -22,16 +22,15 @@
     {{#each activities}}
       <div class="col">
 
-        <div class="card" style="width: 18rem;">
+        <div class="card box">
           <a href="/a/{{id}}">
             <img
               src="{{imageUrl}}"
               class="card-img-top"
               alt="Activity image"
-              style="height: 30%;"
+              {{! style="height: 30%;" }}
             /></a>
           <div class="card-body">
-
             <h5 class="card-title"><a href="/a/{{id}}">{{name}}</a></h5>
             <h3 id="date-text">On {{startDate}} to {{endDate}}</h3>
             <h2 id="grey-text">{{location}}</h2>
@@ -61,3 +60,23 @@
   <script src="/js/map.js"></script>
 
 </div>
+
+<script src="/js/text-speed.js"></script>
+
+
+  <script
+    src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"
+  ></script>
+  <link
+    href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css"
+    rel="stylesheet"
+  />
+  <script
+    src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"
+  ></script>
+  <script src="/js/map.js"></script>
+
+</div>
+
+<script src="/js/text-speed.js"></script>
+

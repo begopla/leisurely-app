@@ -1,35 +1,32 @@
-
-
 window.onload = async () => {
   // const response = await axios.get('http://localhost:3000/profile/json-list');
-  
+
   const generateActivities = async () => {
+    const savedButtons = document.querySelectorAll(".saved-button");
+    const container = document.querySelector("#savedActivitites-container");
 
-  const savedButtons = document.querySelectorAll(".saved-button");
-  const container = document.querySelector("#savedActivitites-container");
+    savedButtons.forEach((button) => {
+      button.addEventListener("click", async (event) => {
+        // Getting the id of the
+        const id = event.currentTarget.children[0].innerHTML;
 
+        // Removing activity from bookmark model
+        await axios.post(`http://localhost:3000/a/${id}/unsave`);
 
-  savedButtons.forEach((button)=>{
-    button.addEventListener("click", async (event)=>{
-      // Getting the id of the 
-      const id = event.currentTarget.children[0].innerHTML;
-     
-       // Removing activity from bookmark model
-      await axios.post(`http://localhost:3000/a/${id}/unsave`);
-  
+        //Getting the activity data
+        const response = await axios.get(
+          "http://localhost:3000/profile/json-list"
+        );
 
-      //Getting the activity data
-      const response = await axios.get("http://localhost:3000/profile/json-list");
-     
-      //Deleting DOM content
-      container.innerHTML = "";
+        //Deleting DOM content
+        container.innerHTML = "";
 
-      //Re-painting DOM content
-      response.data.forEach((activity) => {
-            container.innerHTML += `  
+        //Re-painting DOM content
+        response.data.forEach((activity) => {
+          container.innerHTML += `  
             <div class="row row-cols-1 row-cols-md-2 g-4">
             <div class="col">
-            <div class="card" style="width: 18rem ;">
+            <div class="card">
             <a href="/a/${activity._id}"> <img src="${activity.imageUrl}" class="card-img-top" alt="Activity image" style="height: 30%;"></a>
          
             <div class="card-body">
@@ -50,14 +47,12 @@ window.onload = async () => {
             </div>
             </div>
             </div>
-            </div>`
-          });
-          generateActivities();
-  });
-});
-};
+            </div>`;
+        });
+        generateActivities();
+      });
+    });
+  };
 
-generateActivities();
-
-
+  generateActivities();
 };
