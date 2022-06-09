@@ -19,6 +19,7 @@ body {
   background-color: #ffffff;
   scroll-behavior: smooth;
   height: 100%;
+  min-height: 100vh;
   border-bottom: 28px solid #343a40;
 }
 
@@ -167,10 +168,6 @@ button > #red {
   height: auto;
 }
 
-.welcome-image {
-  position: relative;
-}
-
 .welcome-text {
   position: absolute;
   top: 10%;
@@ -181,7 +178,7 @@ button > #red {
 
 .welcome-form {
   position: absolute;
-  top: 20%;
+  top: 50%;
   left: 5%;
   display: flex;
   flex-direction: column;
@@ -191,9 +188,6 @@ button > #red {
 
 .welcome-image {
   width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 
 .activity-container {
