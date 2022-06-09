@@ -59,7 +59,7 @@ module.exports = (app) => {
         //process.env should be the same
         mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/activities-app",
 
-
+// Let's try something
         
         //ttl: 60 * 60 * 24 * 7,
       }),
