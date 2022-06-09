@@ -1,99 +1,113 @@
 <h1>Edit your activity</h1>
 {{#with activityDetails}}
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <hr />
-      <form action="/a/{{_id}}/edit" method="post">
-        <div class="mb-3">
-          <label for="name" class="form-label">Name: </label>
-          <input
-            required
-            type="text"
-            class="form-control"
-            id="name"
-            name="name"
-            value="{{name}}"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="description" class="form-label">Description: </label>
-          <input
-            required
-            type="text"
-            class="form-control"
-            id="description"
-            name="description"
-            value="{{description}}"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="imageUrl" class="form-label">Image link: </label>
-          <input
-            type="url"
-            class="form-control"
-            id="imageUrl"
-            name="imageUrl"
-            value="{{imageUrl}}"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="startDate" class="form-label">Event start time: </label>
-          <input
-            type="datetime-local"
-            class="form-control"
-            id="date"
-            name="startDate"
-            value="{{startDate}}"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="endDate" class="form-label">Event finish time: </label>
-          <input
-            type="datetime-local"
-            class="form-control"
-            id="date"
-            name="endDate"
-            value="{{endDate}}"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="location" class="form-label">Location: </label>
-          <input
-            type="text"
-            class="form-control"
-            id="autocomplete"
-            placeholder="Enter Location"
-            name="location"
-            value="{{location}}"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="price" class="form-label">Price in EUR: </label>
-          <input type="text" class="form-control" id="price" name="price" value="{{price}}" />
-        </div>
-        <div class="mb-3">
-          <label for="organizer" class="form-label">Orgnizer name: </label>
-          <input
-            type="text"
-            class="form-control"
-            id="orginazer"
-            name="organizer"
-            value="{{organizer}}"
-          />
-        </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <hr />
+        <form action="/a/{{_id}}/edit" method="post">
+          <div class="mb-3 form">
+            <input
+              required
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              value="{{name}}"
+              placeholder=" "
+            />
+            <label for="name" class="form-label">Name: </label>
+          </div>
+          <div class="mb-3 form">
+            <input
+              required
+              type="text"
+              class="form-control"
+              id="description"
+              name="description"
+              value="{{description}}"
+              placeholder=" "
+            />
+            <label for="description" class="form-label">Description: </label>
+          </div>
+          <div class="mb-3 form">
+            <input
+              type="url"
+              class="form-control"
+              id="imageUrl"
+              name="imageUrl"
+              value="{{imageUrl}}"
+              placeholder=" "
+            />
+            <label for="imageUrl" class="form-label">Image link: </label>
+          </div>
+          <div class="mb-3 form">
+            <input
+              type="datetime-local"
+              class="form-control"
+              id="date"
+              name="startDate"
+              value="{{startDate}}"
+              placeholder=" "
+            />
+            <label for="startDate" class="form-label">Event start time: </label>
+          </div>
+          <div class="mb-3 form">
+            <input
+              type="datetime-local"
+              class="form-control"
+              id="date"
+              name="endDate"
+              value="{{endDate}}"
+              placeholder=" "
+            />
+            <label for="endDate" class="form-label">Event finish time: </label>
+          </div>
+          <div class="mb-3 form">
+            <input
+              type="text"
+              class="form-control"
+              id="autocomplete"
+              placeholder="Enter Location"
+              name="location"
+              value="{{location}}"
+              placeholder=" "
+            />
+            <label for="location" class="form-label">Location: </label>
+          </div>
+          <div class="mb-3 form">
+            <input
+              type="text"
+              class="form-control"
+              id="price"
+              name="price"
+              value="{{price}}"
+              placeholder=" "
+            />
+            <label for="price" class="form-label">Price in EUR: </label>
+          </div>
+          <div class="mb-3 form">
+            <input
+              type="text"
+              class="form-control"
+              id="organizer"
+              name="organizer"
+              value="{{organizer}}"
+              placeholder=" "
+            />
+            <label for="organizer" class="form-label">Orgnizer name: </label>
+          </div>
 
-        <button type="submit" class="btn btn-dark">Save</button>
-        <a href="/profile" class="btn btn-dark">Go back</a>
+          <button type="submit" class="btn btn-dark">Save</button>
+          <a href="/profile" class="btn btn-dark">Go back</a>
 
-      </form>
-      <hr>
+        </form>
+        <hr />
+      </div>
+    </div>
+    <div>
+      <p>
+        {{errorMessage}}
+      </p>
     </div>
   </div>
-   <div>
-    <p>
-      {{errorMessage}}
-    </p>
-  </div>
-</div>
 {{/with}}

@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-center row"> 
         <div class="col-md-8">
           <div class="bg-white p">
-            <p class="d-block font-weight-bold name">Leave a comment</p>
+            <p class="d-block font-weight-bold name">How satisfied are you with your found Activity?</p><br>
           </div>
 
           
@@ -19,12 +19,33 @@
                       <textarea name="comments"class="form-control ml-1 shadow-none textarea"></textarea>
                 </div>
                 
-                <div class="mt-2 text-right">      
-                      <button class="btn btn-dark" type="submit">Post comment</button>
-                </div>
             </div>
         </div>
         
     </div>
+
+    <div id="panel" class="panel-container">
+      <div class="ratings-container">
+
+        <div class="rating">
+        <img src="/images/sad (1).png" alt="sad-face">
+        <small>Unhappy</small>
+        </div>
+        <div class="rating">
+        <img src="/images/confused.png" alt="confused">
+        <small>So so</small>
+        </div>
+        <div class="rating">
+        <img src="/images/smiling.png" alt="happy">
+        <small>Happy</small>
+        </div>
+      </div>
+    </div>
+
+        <div class="mt-2 text-right">      
+           <button id="send" class="btn btn-dark" type="submit">Post comment</button>
+        </div>
   </form>
 </div>
+
+<script src="/js/ratings.js"></script>
