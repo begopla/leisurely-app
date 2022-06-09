@@ -8,6 +8,7 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_KEY,
   api_secret: process.env.CLOUDINARY_SECRET,
 });
+//
 
 // create new cloudinary storage
 const storage = new CloudinaryStorage({
