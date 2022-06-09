@@ -168,17 +168,22 @@ button > #red {
   height: auto;
 }
 
+.welcome {
+  position: relative;
+}
+
 .welcome-text {
   position: absolute;
-  top: 10%;
-  left: 5%;
+  font-size: 2vw;
+  width: 100%;
+  top: 2vh;
+  left: 10px;
   text-align: center;
-  height: 100vh;
 }
 
 .welcome-form {
   position: absolute;
-  top: 50%;
+  top: 180px;
   left: 5%;
   display: flex;
   flex-direction: column;
@@ -186,8 +191,17 @@ button > #red {
   align-items: center;
 }
 
+.welcome-btn {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 .welcome-image {
   width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .activity-container {
