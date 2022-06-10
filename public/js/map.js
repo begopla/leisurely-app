@@ -25,7 +25,7 @@ const main = async () => {
     
     res.data.forEach(element => {
         
-    const mapboxClient = mapboxSdk({ accessToken: MAPBOX_ACCESS_TOKEN });
+    const mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
     mapboxClient.geocoding
         .forwardGeocode({
         query: element.location,
