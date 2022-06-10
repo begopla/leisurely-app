@@ -16,7 +16,7 @@ window.onload = async () => {
             const id = event.currentTarget.children[0].innerHTML;
      
         // Removing activity from bookmark model
-            await axios.post(`http://localhost:3000/a/${id}/unsave`);
+            await axios.post(`http://leisurely-app.herokuapp.com/a/${id}/unsave`);
             window.location= "/profile";
         });
     });

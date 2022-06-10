@@ -366,8 +366,6 @@ button > #red {
 .ratings-container {
   display: flex;
 }
-/* Adding change  */
-
 
 .rating {
   flex: 1;
