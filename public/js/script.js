@@ -8,9 +8,9 @@ document.addEventListener(
 
 //Places autocomplete
 
-let autocomplete;
-function initAutocomplete(){
-autocomplete = new google.maps.places.Autocomplete(
+
+window.onload = function (){
+let autocomplete = new google.maps.places.Autocomplete(
  document.getElementById('autocomplete'), 
   {
   types: ['establishment'],
