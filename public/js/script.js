@@ -9,8 +9,10 @@ document.addEventListener(
 //Places autocomplete
 
 
-window.onload = function (){
-let autocomplete = new google.maps.places.Autocomplete(
+
+let autocomplete;
+function initAutocomplete(){
+autocomplete = new google.maps.places.Autocomplete(
  document.getElementById('autocomplete'), 
   {
   types: ['establishment'],
@@ -29,4 +31,3 @@ autocomplete.addListener('place_changed', onPlaceChanged);
      document.getElementById('details').innerHTML = place.name;
      }
 }
-
