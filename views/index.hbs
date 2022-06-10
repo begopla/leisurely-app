@@ -12,40 +12,37 @@
   </form>
 </div>
 
-<h1>How about these ones?</h1>
+<h1>How about these activities?</h1>
 <hr />
-<div class="row row-cols-1 row-cols-md-2 g-4">
-
-  <div class="activity-container">
-
-    {{#each activities}}
+<div class="col-width-index"> 
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+   {{#each activities}}
       <div class="col">
-
-        <div class="card box">
+        <div class="card " style="width: 18rem ;">
           <a href="/a/{{id}}">
             <img
               src="{{imageUrl}}"
               class="card-img-top"
               alt="Activity image"
-              {{! style="height: 30%;" }}
-            /></a>
+            /></a>        
           <div class="card-body">
-            <h5 class="card-title"><a href="/a/{{id}}">{{name}}</a></h5>
-            <h3 id="date-text">On {{startDate}} to {{endDate}}</h3>
+            <div class="card-container">
+              <h5 class="card-title"><a href="/a/{{id}}">{{name}}</a></h5>
+            </div>
+            <h2 id="date-text">On {{startDate}} to {{endDate}}</h3>
             <h2 id="grey-text">{{location}}</h2>
             <h2 id="grey-text">{{price}} EUR </h2>
-            <hr />
           </div>
         </div>
-      </div>
+        </div>
+    
     {{/each}} 
   </div>
-
-  
-
+</div>
+ 
   <hr />
   <div id="map-styling">
-    <div id="map" style="width: 800px; height: 600px;"></div>
+    <div id="map" style="width: 60vw; height: 40vh;"></div>
   </div>
 
   <script

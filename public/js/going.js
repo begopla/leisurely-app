@@ -15,11 +15,11 @@ window.onload = async () => {
         const id = event.currentTarget.children[0].innerHTML;
        
          // Removing activity from bookmark model
-        await axios.post(`http://localhost:3000/a/${id}/unregister`);
+        await axios.post(`http://leisurely-app.herokuapp.com/a/${id}/unregister`);
     
   
         //Getting the activity data
-        const response = await axios.get("http://localhost:3000/profile/json-list-unregister");
+        const response = await axios.get("http://leisurely-app.herokuapp.com/profile/json-list-unregister");
         console.log(response.data)
         //Deleting DOM content
         container.innerHTML = "";
@@ -27,9 +27,9 @@ window.onload = async () => {
         //Re-painting DOM content
         response.data.forEach((activity) => {
               container.innerHTML += `  
-              <div class="row row-cols-1 row-cols-md-2 g-4">
-              <div class="col">
-              <div class="card" style="width: 18rem ;">
+              
+              <div class="col mb-4 h-100">
+              <div class="card">
               <a href="/a/${activity._id}"> <img src="${activity.imageUrl}" class="card-img-top" alt="Activity image" style="height: 30%;"></a>
            
               <div class="card-body">
@@ -41,10 +41,8 @@ window.onload = async () => {
                   </button>
                   </div>
                   <h3 id="date-text">On ${activity.startDate} to {{activity.endDate}}</h3>
-                  <h3 id="grey-text">${activity.location}</h2>
+                  <h2 id="grey-text">${activity.location}</h2>
                   <h2 id="grey-text">${activity.price} EUR </h2>
-              <hr>
-              </div>
               </div>
               </div>
               </div>`
@@ -53,6 +51,7 @@ window.onload = async () => {
     });
   });
   };
+// Adding change
   
   generateActivities();
   
