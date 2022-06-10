@@ -1,12 +1,13 @@
 <h1>Ready for all the fun?</h1>
 <hr>
-
+{{!-- <div class="col-width">  --}}
 <section id="savedActivitites-container">
 <div class="row row-cols-1 row-cols-md-2 g-4">
+
 {{#each registerActivity }}
 <div class="col">
-
-<div class="card box" style="width: 18rem ;">
+  
+<div class="card "style="width: 18rem ;">
 
   <a href="/a/{{id}}"> <img src="{{imageUrl}}" class="card-img-top" alt="Activity image" style="height: 30%;"></a>
  
@@ -20,15 +21,17 @@
           </svg> </button>
     </div>
     <h3 id="date-text">On {{startDate}} to {{endDate}}</h3>
-    <h3 id="grey-text">{{location}}</h2>
+    <h2 id="grey-text">{{location}}</h2>
     <h2 id="grey-text">{{price}} EUR </h2>
-    <hr>
+    
   </div>
 </div>
 </div>
 {{/each}}
 </div>
 </section>
+{{!-- </div> --}}
+
 
 
 

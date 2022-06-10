@@ -6,7 +6,7 @@
   
   <img
     src="{{activityDetails.imageUrl}}"
-    class="card-img-top"
+    class="card-img-top full-width"
     alt="Activity image"
   />
   <div class="card-body">
@@ -124,7 +124,7 @@
 
   <section style="background-color: #eee;">
     <div class="container my-5 py-5 set-width">
-      <div class="row d-flex">
+      <div class="row d-flex set-comment-width">
         <div class="col-md-10">
           <div class="card box">
           <div class="comments">
@@ -170,11 +170,11 @@
                 </a>
               </div> --}}
             </div>
-            {{!-- <div class="comments">
+            <div class="comments">
             <form action="/a/{{id}}/comments/delete" method="post">
             <button type="submit" class="btn btn-primary">Delete</button>
             </form>
-            </div> --}}
+            </div>
             </div>
           </div>
         </div>
