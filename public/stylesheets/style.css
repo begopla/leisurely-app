@@ -122,6 +122,10 @@ h2 > #grey-text {
   width: 75vw;
   margin-left: 15vw;
 }
+.search-card{
+  width: 40%;
+  margin-left:25vw ;
+}
 .col-width-index {
   width: 75vw;
   margin-left: 15vw;
