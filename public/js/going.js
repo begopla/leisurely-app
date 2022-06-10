@@ -51,6 +51,7 @@ window.onload = async () => {
     });
   });
   };
+// Adding change
   
   generateActivities();
   

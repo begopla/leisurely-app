@@ -64,4 +64,5 @@ const main = async () => {
         })
     });
 }
+// Adding change
 window.addEventListener('load',main);
