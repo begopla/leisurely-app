@@ -16,9 +16,9 @@ router.get("/user-settings", isLoggedIn, async (req, res, next) => {
 
 router.get("/user-settings-edit", isLoggedIn, async (req, res, next) => {
   try {
-    const editSettings = req.session.currentUser;
-    console.log(editSettings);
-    res.render("settings/user-settings-edit", { editSettings });
+    // const editSettings = req.session.currentUser;
+    // console.log(editSettings);
+    res.render("settings/user-settings-edit");
   } catch (error) {
     next(error);
   }
@@ -30,39 +30,27 @@ router.post(
   isLoggedIn,
   async (req, res, next) => {
     const id = req.session.currentUser._id;
-    const {
-      firstName,
-      lastName,
-      email,
-      password,
-      gender,
-      birthday,
-      nationality,
-      profilePicture,
-      job,
-      location
-    } = req.body;
-    /* if (req.file) {
+    console.log(req.body);
+    if (req.file) {
       req.body.profilePicture = req.file.path;
-    } */
+    }
+    // const {
+    //   firstName,
+    //   lastName,
+    //   email,
+    //   password,
+    //   gender,
+    //   birthday,
+    //   nationality,
+    //   profilePicture,
+    //   job,
+    //   location,
+    // } = req.body;
+
     try {
-      const newUser = await User.findByIdAndUpdate(
-        id,
-        {
-          firstName,
-          lastName,
-          email,
-          password,
-          gender,
-          birthday,
-          nationality,
-          profilePicture: req.file.path,
-          job, 
-          location
-        },
-        { new: true }
-      );
+      const newUser = await User.findByIdAndUpdate(id, req.body, { new: true });
       res.locals.currentUser = newUser;
+      req.session.currentUser = newUser;
       res.render("settings/user-settings");
     } catch (error) {
       next(error);
