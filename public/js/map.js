@@ -21,11 +21,11 @@ const main = async () => {
         console.log("Your browser doesn't support geolocation")
     }
     
-    const res = await axios.get("http://leisurely-app.herokuapp.com/json-list");
+    const res = await axios.get("https://leisurely-app.herokuapp.com/json-list");
     
     res.data.forEach(element => {
         
-    const mapboxClient = mapboxSdk({ accessToken: MAPBOX_ACCESS_TOKEN });
+    const mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
     mapboxClient.geocoding
         .forwardGeocode({
         query: element.location,
