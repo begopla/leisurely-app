@@ -21,7 +21,7 @@ const main = async () => {
         console.log("Your browser doesn't support geolocation")
     }
     
-    const res = await axios.get("http://leisurely-app.herokuapp.com/json-list");
+    const res = await axios.get("https://leisurely-app.herokuapp.com/json-list");
     
     res.data.forEach(element => {
         
