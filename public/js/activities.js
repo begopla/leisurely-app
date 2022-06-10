@@ -24,8 +24,7 @@ window.onload = async () => {
         //Re-painting DOM content
         response.data.forEach((activity) => {
           container.innerHTML += `  
-            <div class="row row-cols-1 row-cols-md-2 g-4">
-            <div class="col">
+            <div class="col mb-4 h-100">
             <div class="card">
             <a href="/a/${activity._id}"> <img src="${activity.imageUrl}" class="card-img-top" alt="Activity image" style="height: 30%;"></a>
          
@@ -41,10 +40,9 @@ window.onload = async () => {
                 </button>
                 </div>
                 <h3 id="date-text">On ${activity.startDate} to {{activity.endDate}}</h3>
-                <h3 id="grey-text">${activity.location}</h2>
+                <h2 id="grey-text">${activity.location}</h2>
                 <h2 id="grey-text">${activity.price} EUR </h2>
-            <hr>
-            </div>
+           
             </div>
             </div>
             </div>`;
