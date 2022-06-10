@@ -102,9 +102,9 @@
       <a href="/a/{{activityDetails.id}}/edit" class="btn btn-dark"> Edit </a>
       </div>
       <div class="col-1">
-      <form action="/a/{{activityDetails.id}}/delete" method="post"><button
+      {{!-- <form action="/a/{{activityDetails.id}}/delete" method="post"><button
           class="btn btn-dark"
-        >Delete</button></form>
+        >Delete</button></form> --}}
         </div>
         </div>
       {{/if}}
@@ -135,13 +135,20 @@
               
                 {{#each activityDetails.comments}}
                 <div class="d-flex flex-start align-items-center">
+                  <div style="display: flex;
+                    border-radius: 50%;
+                    border: 1px solid black;
+                    overflow: hidden;
+                    aspect-ratio: 1;">
                 <img
                   class="rounded-circle shadow-1-strong me-3"
                   src="{{user.profilePicture}}"
                   alt="profile-picture"
                   width="60"
-                  height="60"
+                  style="object-fit:cover"
                 />
+                    
+                    </div>
                 <div>
                   <h6 class="fw-bold text-primary mb-1">{{user.firstName}} {{user.lastName}}</h6>
                   <p class="text-muted small mb-0">
@@ -171,9 +178,9 @@
               </div> --}}
             </div>
             <div class="comments">
-            <form action="/a/{{id}}/comments/delete" method="post">
+            {{!-- <form action="/a/{{id}}/comments/delete" method="post">
             <button type="submit" class="btn btn-primary">Delete</button>
-            </form>
+            </form> --}}
             </div>
             </div>
           </div>
