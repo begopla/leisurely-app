@@ -1,7 +1,6 @@
-const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoiYnBsYXJ1YmkiLCJhIjoiY2w0MmgyazF1NGo2NDNjbDhwY3dsYzBmYyJ9.xISr4Zkte7OxTKBLzEp7Ug';
 
 const main = async () => {
-    mapboxgl.accessToken =  MAPBOX_ACCESS_TOKEN;
+    mapboxgl.accessToken =  'pk.eyJ1IjoiYnBsYXJ1YmkiLCJhIjoiY2w0MmgyazF1NGo2NDNjbDhwY3dsYzBmYyJ9.xISr4Zkte7OxTKBLzEp7Ug';
     const map = new mapboxgl.Map({
 
        container: 'map', //contanier ID
