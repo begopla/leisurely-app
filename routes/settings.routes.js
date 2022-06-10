@@ -3,11 +3,8 @@ const { isLoggedIn } = require("../middlewares/auth.middlewares.js");
 const updloader = require("../config/cloudinary");
 const User = require("../models/User.model");
 
-
-
-
 // get root settings
-router.get("/",isLoggedIn, async (req, res, next) => {
+router.get("/user-settings", isLoggedIn, async (req, res, next) => {
   try {
     const myUser = req.session.currentUser;
     //const userSettings = await User.find();
@@ -17,19 +14,20 @@ router.get("/",isLoggedIn, async (req, res, next) => {
   }
 });
 
-router.get("/user-settings-edit",isLoggedIn, async (req, res, next) => {
+router.get("/user-settings-edit", isLoggedIn, async (req, res, next) => {
   try {
     const editSettings = req.session.currentUser;
+    console.log(editSettings);
     res.render("settings/user-settings-edit", { editSettings });
   } catch (error) {
     next(error);
   }
 });
 
-
 router.post(
-  "/user-settings-edit",isLoggedIn,
+  "/user-settings-edit",
   updloader.single("profilePicture"),
+  isLoggedIn,
   async (req, res, next) => {
     const id = req.session.currentUser._id;
     const {
@@ -41,9 +39,14 @@ router.post(
       birthday,
       nationality,
       profilePicture,
+      job,
+      location
     } = req.body;
+    /* if (req.file) {
+      req.body.profilePicture = req.file.path;
+    } */
     try {
-      await User.findByIdAndUpdate(
+      const newUser = await User.findByIdAndUpdate(
         id,
         {
           firstName,
@@ -54,10 +57,13 @@ router.post(
           birthday,
           nationality,
           profilePicture: req.file.path,
+          job, 
+          location
         },
         { new: true }
       );
-      res.redirect(`/settings/user-settings`);
+      res.locals.currentUser = newUser;
+      res.render("settings/user-settings");
     } catch (error) {
       next(error);
     }
