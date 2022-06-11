@@ -43,7 +43,6 @@ router.post("/search-results", async (req, res, next) => {
     const findActivity = await Activity.find({
       name: { $regex: req.body.text, $options: "i" },
     });
-    console.log(findActivity);
     res.render("profile/search-results", { findActivity });
   } catch (error) {
     next(error);

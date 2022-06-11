@@ -17,7 +17,6 @@ router.get("/user-settings", isLoggedIn, async (req, res, next) => {
 router.get("/user-settings-edit", isLoggedIn, async (req, res, next) => {
   try {
     // const editSettings = req.session.currentUser;
-    // console.log(editSettings);
     res.render("settings/user-settings-edit");
   } catch (error) {
     next(error);
@@ -30,7 +29,6 @@ router.post(
   isLoggedIn,
   async (req, res, next) => {
     const id = req.session.currentUser._id;
-    console.log(req.body);
     if (req.file) {
       req.body.profilePicture = req.file.path;
     }
