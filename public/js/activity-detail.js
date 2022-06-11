@@ -10,7 +10,7 @@ window.onload = async () => {
         const id = event.currentTarget.children[0].innerHTML;
 
         // Removing activity from bookmark model
-        await axios.post(`http://localhost:3000/a/${id}/unregister`);
+        await axios.post(`https:///leisurely-app.herokuapp.com/${id}/unregister`);
         window.location.replace("/profile");
       });
     });

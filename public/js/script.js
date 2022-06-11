@@ -8,6 +8,8 @@ document.addEventListener(
 
 //Places autocomplete
 
+
+
 let autocomplete;
 function initAutocomplete(){
 autocomplete = new google.maps.places.Autocomplete(
@@ -28,4 +30,3 @@ autocomplete.addListener('place_changed', onPlaceChanged);
      document.getElementById('details').innerHTML = place.name;
      }
 }
-

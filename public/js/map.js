@@ -1,7 +1,6 @@
-const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoiYnBsYXJ1YmkiLCJhIjoiY2w0MmgyazF1NGo2NDNjbDhwY3dsYzBmYyJ9.xISr4Zkte7OxTKBLzEp7Ug';
 
 const main = async () => {
-    mapboxgl.accessToken =  MAPBOX_ACCESS_TOKEN;
+    mapboxgl.accessToken =  'pk.eyJ1IjoiYnBsYXJ1YmkiLCJhIjoiY2w0MmgyazF1NGo2NDNjbDhwY3dsYzBmYyJ9.xISr4Zkte7OxTKBLzEp7Ug';
     const map = new mapboxgl.Map({
 
        container: 'map', //contanier ID
@@ -22,11 +21,11 @@ const main = async () => {
         console.log("Your browser doesn't support geolocation")
     }
     
-    const res = await axios.get("http://leisurely-app.herokuapp.com/json-list");
+    const res = await axios.get("https://leisurely-app.herokuapp.com/json-list");
     
     res.data.forEach(element => {
         
-    const mapboxClient = mapboxSdk({ accessToken: MAPBOX_ACCESS_TOKEN });
+    const mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
     mapboxClient.geocoding
         .forwardGeocode({
         query: element.location,

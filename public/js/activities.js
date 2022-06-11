@@ -10,11 +10,11 @@ window.onload = async () => {
         const id = event.currentTarget.children[0].innerHTML;
 
         // Removing activity from bookmark model
-        await axios.post(`http://leisurely-app.herokuapp.com/a/${id}/unsave`);
+        await axios.post(`https://leisurely-app.herokuapp.com/a/${id}/unsave`);
 
         //Getting the activity data
         const response = await axios.get(
-          "http://leisurely-app.herokuapp.com/profile/json-list"
+          "https://leisurely-app.herokuapp.com/profile/json-list"
         );
 
         //Deleting DOM content
