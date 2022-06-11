@@ -9,9 +9,17 @@
           
             <div class="d-flex flex-column comment-section">
                 <div class="bg-white p-2">
-                  {{!-- insert profile picture, name --}}
-                    <div class="d-flex flex-row user-info"><img class="rounded-circle" src="{{activityDetails.user.profilePicture}}" width="40">
-                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">{{activityDetails.user.firstName}} {{activityDetails.user.lastName}}</span>
+                    <div class="d-flex flex-row user-info">
+                      <div style="
+                    display: flex;
+                    border-radius: 50%;
+                    border: 1px solid black;
+                    overflow: hidden;
+                    aspect-ratio: 1;">
+                      <img class="rounded-circle" src="{{currentUser.profilePicture}}" width="40" style="object-fit:cover">
+
+                      </div>
+                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">{{currentUser.firstName}} {{currentUser.lastName}}</span>
                     </div>                  
                 </div>
                 <div class="bg-light p-2">
