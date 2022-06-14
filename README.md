@@ -39,3 +39,19 @@ ACTIVITIES
 | a/:id/register   | POST      | register for activity and receive email confirmation     | redirect to profile/going                     |
 | a/:id/unregister | POST      | remove register from saved-activities                    | redirect to profile/savedactivities           |
 | a/:id            | GET       | get activity detail, user, bookmarks, register, comments | activities/activites-details                  |
+
+SETTINGS
+
+| Route                       | HTTP Verb          | Description                                                | View                          |
+| --------------------------- | ------------------ | ---------------------------------------------------------- | ----------------------------- |
+| settings/user-settings      | show user settings | show user settings                                         | settings/user-settings        |
+| settings/user-settings-edit | GET                | being able to edit user settings                           | settings/user-settings-edit   |
+| settings/user-settings-edit | POST               | upload profile picture cloudinary, update personal profile | render settings/user-settings |
+
+COMMENTS
+
+| Route                 | HTTP Verb | Description                                                      | View                |
+| --------------------- | --------- | ---------------------------------------------------------------- | ------------------- |
+| a/:id/comments        | GET       | show comment field in activity-details                           | activities/comments |
+| a/:id/comments        | POST      | get comment from comments view, post comment in activity-details | redirect to a/:id   |
+| a/:id/comments/delete | POST      | delete comment (fix required)                                    | redirect to a/:id   |
